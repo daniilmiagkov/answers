@@ -1,0 +1,145 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+% Математические пакеты
+\usepackage{amssymb, amsmath}
+
+% Пакеты для оформления
+\usepackage[
+    a5paper,
+    left=15mm,
+    right=15mm,
+    top=10mm,
+    bottom=15mm,
+    footskip=5mm
+]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\begin{document}
+
+\title{Отношения и их свойства}
+\author{}
+\date{}
+\makeatletter
+\renewcommand{\maketitle}{
+  \begin{center}
+    {\Large\mdseries\@title\par}
+    \vspace{0.5em}
+  \end{center}
+}
+\makeatother
+\maketitle
+
+\section*{3. Отношения и их свойства}
+
+\subsection*{3.1. Что такое отношение}
+
+\textbf{Бинарное отношение} $R$ между двумя множествами $A$ и $B$ — это множество упорядоченных пар:
+\[
+R \subseteq A \times B,
+\]
+где $A \times B$ — декартово произведение:
+\[
+A \times B = \{ (a, b) \mid a \in A,\, b \in B \}.
+\]
+
+Если $(a, b) \in R$, то говорят, что \textit{$a$ связано с $b$} отношением $R$, и пишут $a\,R\,b$.
+
+\subsection*{3.2. Примеры}
+
+\begin{itemize}[leftmargin=*]
+  \item Отношение \textbf{«меньше»} на $\mathbb{N}$: $R = \{(a, b) \mid a < b\}$.
+  \item Отношение \textbf{«быть делителем»} на $\mathbb{N}$: $R = \{(a, b) \mid a \mid b\}$.
+  \item Отношение \textbf{«равенство по модулю»} на $\mathbb{Z}$: $a \equiv b \pmod{n}$.
+\end{itemize}
+
+\subsection*{3.3. Область и область значений}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Область определения (domain)}:
+  \[
+  \operatorname{dom}(R) = \{ a \in A \mid \exists b \in B\colon (a,b) \in R \}.
+  \]
+  \item \textbf{Область значений (range)}:
+  \[
+  \operatorname{ran}(R) = \{ b \in B \mid \exists a \in A\colon (a,b) \in R \}.
+  \]
+\end{itemize}
+
+\subsection*{3.4. Свойства бинарных отношений (на $A \times A$)}
+
+Пусть $R \subseteq A \times A$. Тогда отношение может обладать следующими свойствами:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Рефлексивность:}
+  \[
+  \forall a \in A\colon (a,a) \in R.
+  \]
+  Пример: $=$, $\le$.
+
+  \item \textbf{Антирефлексивность (иррефлексивность):}
+  \[
+  \forall a \in A\colon (a,a) \notin R.
+  \]
+  Пример: $<$.
+
+  \item \textbf{Симметричность:}
+  \[
+  \forall a,b \in A\colon (a,b) \in R \Rightarrow (b,a) \in R.
+  \]
+  Пример: «$a$ и $b$ живут в одном доме».
+
+  \item \textbf{Антисимметричность:}
+  \[
+  \forall a,b \in A\colon (a,b)\in R \wedge (b,a)\in R \Rightarrow a = b.
+  \]
+  Пример: $\le$.
+
+  \item \textbf{Транзитивность:}
+  \[
+  \forall a,b,c \in A\colon (a,b)\in R \wedge (b,c)\in R \Rightarrow (a,c)\in R.
+  \]
+  Пример: $\le$, $<$.
+\end{itemize}
+
+\subsection*{3.5. Особые классы отношений}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Отношение эквивалентности} — рефлексивное, симметричное и транзитивное.  
+  Пример: $a \equiv b \pmod{n}$.
+
+  Такое отношение разбивает множество $A$ на \textit{классы эквивалентности}.
+
+  \item \textbf{Отношение частичного порядка} — рефлексивное, антисимметричное и транзитивное.  
+  Пример: $\le$ на $\mathbb{N}$.
+
+  Если дополнительно выполняется, что любые два элемента сравнимы, то это \textbf{полный порядок}.
+\end{itemize}
+
+\subsection*{3.6. Графическое представление}
+
+Бинарное отношение на множестве $A$ можно представить в виде \textbf{ориентированного графа}:
+
+\begin{itemize}[leftmargin=*]
+  \item Вершины соответствуют элементам $A$.
+  \item Направленное ребро $a \to b$ рисуется, если $(a,b) \in R$.
+\end{itemize}
+
+Пример: на множестве $A = \{1, 2, 3\}$ отношение $R = \{(1,2), (2,3), (1,3)\}$ — транзитивное.
+
+\subsection*{3.7. Табличное представление}
+
+Отношение $R$ на множестве $A = \{a_1, a_2, \dots, a_n\}$ можно представить в виде \textbf{таблицы}, где в ячейке на пересечении строки $i$ и столбца $j$ стоит $1$, если $(a_i, a_j) \in R$, и $0$ — иначе. Это называется \textbf{матрицей смежности}.
+
+\subsection*{Источники}
+
+\begin{itemize}
+  \item Г.С. Михалев, \textit{Дискретная математика}.
+  \item Р. Джонсонбауг, \textit{Дискретная математика}, Pearson Education.
+  \item \href{https://ru.wikipedia.org/wiki/Бинарное_отношение}{Википедия: Бинарное отношение}
+\end{itemize}
+
+\end{document}

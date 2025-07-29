@@ -1,0 +1,140 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+% Математические пакеты
+\usepackage{amssymb, amsmath}
+
+% Пакеты для оформления
+\usepackage[
+    a5paper,
+    left=15mm,
+    right=15mm,
+    top=10mm,
+    bottom=15mm,
+    footskip=5mm
+]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tikz}
+
+\begin{document}
+
+\title{Отношение эквивалентности\\и классификация множеств}
+\author{}
+\date{}
+\makeatletter
+\renewcommand{\maketitle}{
+  \begin{center}
+    {\Large\mdseries\@title\par}
+    \vspace{0.5em}
+  \end{center}
+}
+\makeatother
+\maketitle
+
+\section*{4. Отношение эквивалентности и классификация множеств}
+
+\subsection*{4.1. Определение отношения эквивалентности}
+
+Пусть $A$ — множество. Бинарное отношение $R\subseteq A\times A$ называется \textbf{отношением эквивалентности}, если оно обладает тремя свойствами:
+\begin{enumerate}[label=\arabic*)]
+  \item \textbf{Рефлексивность:} 
+    \[
+      \forall a\in A\; (a,a)\in R.
+    \]
+  \item \textbf{Симметричность:} 
+    \[
+      \forall a,b\in A\; (a,b)\in R \;\Rightarrow\; (b,a)\in R.
+    \]
+  \item \textbf{Транзитивность:} 
+    \[
+      \forall a,b,c\in A\; \bigl((a,b)\in R \wedge (b,c)\in R\bigr) \;\Rightarrow\; (a,c)\in R.
+    \]
+\end{enumerate}
+
+\subsection*{4.2. Классы эквивалентности}
+
+Для каждого элемента $a\in A$ определим его \emph{класс эквивалентности}:
+\[
+  [a] = \{\,x\in A \mid (a,x)\in R\}.
+\]
+\begin{itemize}[leftmargin=*]
+  \item Если $(a,b)\in R$, то $[a]=[b]$.
+  \item Классы эквивалентности попарно не пересекаются:
+    \[
+      [a]\neq [b]\;\Longrightarrow\;[a]\cap [b]=\varnothing.
+    \]
+\end{itemize}
+
+\subsection*{4.3. Фактор‑множество}
+
+Множество всех классов эквивалентности обозначается
+\[
+  A / R = \{ \,[a] \mid a\in A\,\},
+\]
+и называется \textbf{фактор‑множеством} или \textbf{множество классов эквивалентности}. Имеет натуральное отображение:
+\[
+  \pi\colon A \;\longrightarrow\; A/R,\qquad \pi(a) = [a].
+\]
+
+\subsection*{4.4. Примеры}
+
+\begin{enumerate}[label=\arabic*)]
+  \item \textbf{Конгруэнция по модулю $n$} на $\mathbb{Z}$:
+  \[
+    a \equiv b \pmod{n}
+    \quad\Longleftrightarrow\quad
+    n \mid (a-b).
+  \]
+  Здесь класс $[a] = \{\,a + kn \mid k\in\mathbb{Z}\}$, а фактор‑множество $\mathbb{Z}/n\mathbb{Z}$ содержит $n$ классов: 
+  \(\{[0],[1],\dots,[n-1]\}.\)
+
+  \item \textbf{Равенство длины слов} над алфавитом $\Sigma$:
+  \[
+    u \sim v \;\Longleftrightarrow\; |u| = |v|.
+  \]
+  Класс $[u]$ — все слова фиксированной длины $|u|$.
+
+  \item \textbf{Классификация точек плоскости} по цвету: две точки эквивалентны, если окрашены в один цвет. Фактор‑множество — набор всех используемых цветов.
+\end{enumerate}
+
+\subsection*{4.5. Графическое представление}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9]
+  % универсум U
+  \draw[thick] (-0.5,-0.5) rectangle (4.5,2.5) node[above left]{$U$};
+  % классы эквивалентности
+  \draw (1,1) circle (1cm) node at (0.3,1.8){$[a]$};
+  \draw (3,1) circle (1cm) node at (2.3,1.8){$[b]$};
+  % точки
+  \node at (0.7,1) {$a$};
+  \node at (1.2,0.6) {$x$};
+  \node at (3.0,1) {$b$};
+  \node at (2.6,0.6) {$y$};
+\end{tikzpicture}
+
+\end{center}
+
+\subsection*{4.6. Классификация множеств}
+
+Отношения эквивалентности дают естественный способ \textbf{классификации} элементов множества $A$:
+\begin{itemize}[leftmargin=*]
+  \item Каждый класс эквивалентности можно воспринимать как \emph{класс признаков} или \emph{категорию}.
+  \item Фактор‑множество $A/R$ — это множество \emph{категорий}, упорядоченных произвольным образом.
+  \item Если требуется работать не с элементами $A$, а лишь с их классами (например, вычислять «цвета», «остаток при делении» и т.\,д.), удобно перейти к $A/R$.
+\end{itemize}
+
+\subsection*{Источники}
+
+\begin{itemize}
+  \item Г.\,С. Михалев, \emph{Дискретная математика. Базовый курс для вузов}.
+  \item Р. Джонсонбауг, \emph{Дискретная математика}, Pearson Education.
+  \item В.\,Э. Пахомов, \emph{Введение в дискретную математику}.
+  \item \href{https://ru.wikipedia.org/wiki/Класс_эквивалентности}{Википедия: Класс эквивалентности}
+  \item \href{https://ru.wikipedia.org/wiki/Фактор-множество}{Википедия: Фактор‑множество}
+\end{itemize}
+
+\end{document}
