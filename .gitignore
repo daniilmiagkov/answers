@@ -1,0 +1,44 @@
+# Основные временные файлы LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+*.synctex.gz
+*.synctex(busy)
+
+# Выходные PDF (если вы генерируете их автоматически)
+# Раскомментируйте, если не хотите хранить скомпилированный PDF в репозитории
+#*.pdf
+
+# Файлы пакетов и настроек
+*.sty
+*.cfg
+*.cls
+
+# Файлы бэкапов редакторов
+*~
+*.backup
+*.bak
+*.swp
+
+# Каталоги сборки (если используете отдельную папку)
+/out/
+/build/
+/temp/
+
+# Файлы специфичные для VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Файлы операционных систем
+.DS_Store
+Thumbs.db
