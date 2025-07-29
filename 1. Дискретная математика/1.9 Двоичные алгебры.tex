@@ -1,0 +1,136 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+% Математические пакеты
+\usepackage{amssymb, amsmath}
+
+% Пакеты для оформления
+\usepackage[
+    a5paper,
+    left=15mm,
+    right=15mm,
+    top=10mm,
+    bottom=15mm,
+    footskip=5mm
+]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{tikz}
+
+\begin{document}
+
+\title{Двоичные алгебры}
+\author{}
+\date{}
+\makeatletter
+\renewcommand{\maketitle}{
+  \begin{center}
+    {\Large\mdseries\@title\par}
+    \vspace{0.5em}
+  \end{center}
+}
+\makeatother
+\maketitle
+
+\section*{9. Двоичные алгебры}
+
+\subsection*{9.1. Понятие двоичной (бинарной) операции}
+
+\begin{definition}
+Пусть $A$ — непустое множество. \emph{Двоичной операцией} на $A$ называется отображение
+\[
+  * : A \times A \;\longrightarrow\; A,
+  \quad (x,y)\mapsto x*y.
+\]
+\end{definition}
+
+\emph{Интуиция:} берём два элемента из $A$, «складываем» их по правилу $*$ и получаем снова элемент из $A$.
+
+\subsection*{9.2. Свойства двоичной операции}
+
+Пусть $*$ — двоичная операция на $A$. Говорят, что $*$ обладает свойствами:
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Замкнутость}: по определению $x*y\in A$ для любых $x,y\in A$.
+  \item \textbf{Ассоциативность}:
+    \[
+      (x*y)*z = x*(y*z),\quad \forall x,y,z\in A.
+    \]
+    Позволяет не ставить скобок при многократном применении.
+  \item \textbf{Коммутативность}:
+    \[
+      x*y = y*x,\quad \forall x,y\in A.
+    \]
+  \item \textbf{Нейтральный (единичный) элемент}: существует $e\in A$ такое, что
+    \[
+      e*x = x*e = x,\quad \forall x\in A.
+    \]
+    Его часто обозначают $0$ или $1$ в зависимости от контекста.
+  \item \textbf{Обратимые элементы}: элемент $x\in A$ называется обратимым, если существует $y\in A$ такой, что
+    \[
+      x*y = y*x = e.
+    \]
+    Тогда $y$ называют \emph{обратным} к $x$ и обозначают $x^{-1}$.
+\end{itemize}
+
+\subsection*{9.3. Классификация двоичных алгебр}
+
+\begin{enumerate}[label=\arabic*)]
+  \item \textbf{Магма}: $(A,*)$ — любое множество с двоичной операцией (требуется лишь замкнутость).
+  \item \textbf{Полугруппа}: магма с ассоциативной операцией.
+  \item \textbf{Моноид}: полугруппа, в которой есть единица $e$.
+  \item \textbf{Группа}: моноид, в котором каждый элемент обратим.
+  \item \textbf{Абелева (коммутативная) группа}: группа с коммутативным $*$.
+\end{enumerate}
+
+\subsection*{9.4. Примеры}
+
+\begin{enumerate}[label=\arabic*)]
+  \item $(\mathbb{Z}, +)$ — абелева группа, где единица $0$, обратный к $x$ есть $-x$.
+  \item $(\mathbb{N}, +)$ — моноид (нет обратных элементов, кроме $0$).
+  \item $(\{0,1\}, \wedge)$ — коммутативная монода, где $0\wedge1=0$, единица $1$.
+  \item $(\{0,1\}, \oplus)$ (сумма по модулю 2) — абелева группа:  
+    \[
+      0\oplus0=0,\quad 0\oplus1=1,\quad1\oplus1=0;
+      \quad e=0,\;x^{-1}=x.
+    \]
+  \item $(M_n(\mathbb{R}), \cdot)$ — полугруппа матриц; моноид при наличии единичной матрицы.
+\end{enumerate}
+
+\subsection*{9.5. Таблица Кэли}
+
+Для конечных алгебр удобно задавать операцию таблицей.  
+\emph{Пример:} группа $(\{0,1\},\oplus)$:
+
+\[
+\begin{array}{c|cc}
+\oplus & 0 & 1 \\ \hline
+0 & 0 & 1 \\
+1 & 1 & 0
+\end{array}
+\]
+
+\subsection*{9.6. Связь с булевыми алгебрами}
+
+Булева алгебра — это \emph{расширенная} коммутативная группа с дополнительными операциями «и», «или» и «не» на множестве $\{0,1\}$.  
+В частности, структура $(\{0,1\},\wedge,\vee,\neg)$ удовлетворяет ряду аксиом идемпотентности и дистрибутивности.
+
+\subsection*{9.7. Зачем нужны двоичные алгебры?}
+
+\begin{itemize}[leftmargin=*]
+  \item Моделирование и анализ абстрактных операций (сложение, умножение, логические связки).
+  \item Основа теории групп и её приложений: симметрии, криптография, теории кодирования.
+  \item В информатике: операции над битами, булевы функции, конечные автоматы.
+\end{itemize}
+
+\subsection*{Источники}
+
+\begin{itemize}
+  \item С.\,Ланг, \emph{Алгебра}.
+  \item Д.\,С. Джонсонбауг, \emph{Дискретная математика}, Pearson.
+  \item \href{https://ru.wikipedia.org/wiki/Бинарная_операция}{Википедия: Бинарная операция}.
+\end{itemize}
+
+\end{document}
