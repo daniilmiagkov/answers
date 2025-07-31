@@ -1,53 +1,17 @@
-\documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T2A]{fontenc}
-\usepackage[russian]{babel}
+\subsection{5. Планарные графы}
 
-% Математические пакеты
-\usepackage{amssymb, amsmath}
-
-% Пакеты для оформления
-\usepackage[
-    a5paper,
-    left=15mm,
-    right=15mm,
-    top=10mm,
-    bottom=15mm,
-    footskip=5mm
-]{geometry}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{tikz}
-
-\begin{document}
-
-\title{Планарные графы}
-\author{}
-\date{}
-\makeatletter
-\renewcommand{\maketitle}{
-  \begin{center}
-    {\Large\mdseries\@title\par}
-    \vspace{0.5em}
-  \end{center}
-}
-\makeatother
-\maketitle
-
-\section*{5. Планарные графы}
-
-\subsection*{5.1. Определение}
+\subsubsection{5.1. Определение}
 
 \textbf{Планарным} называется неориентированный граф $G$ (множество вершин $V$ и ребёр $E$), который можно нарисовать на плоскости так, чтобы никакие два ребра не пересекались, кроме общих концов. Такое представление называется \emph{планарным вложением} графа.
 
-\subsection*{5.2. Примеры}
+\subsubsection{5.2. Примеры}
 
 \begin{itemize}[leftmargin=*]
   \item Граф $K_4$ (полный граф на четырёх вершинах) является планарным.
   \item Графы $K_5$ и $K_{3,3}$ не являются планарными (теорема Куратовского, см.~ниже).
 \end{itemize}
 
-\subsubsection*{5.2.1. Планарный пример: $K_4$}
+\subsubsubsection*{5.2.1. Планарный пример: $K_4$}
 
 \begin{center}
 \begin{tikzpicture}[scale=1, every node/.style={circle,draw,inner sep=1.5pt}]
@@ -62,7 +26,7 @@
 \small Рис. 1. Планарное вложение полного графа $K_4$.
 \end{center}
 
-\subsubsection*{5.2.2. Непланарный пример: $K_5$}
+\subsubsubsection*{5.2.2. Непланарный пример: $K_5$}
 
 \begin{center}
 \begin{tikzpicture}[scale=1, every node/.style={circle,draw,inner sep=1.5pt}]
@@ -78,7 +42,7 @@
 \small Рис. 2. Попытка вложения полного графа $K_5$ с неизбежными пересечениями.
 \end{center}
 
-\subsection*{5.3. Формула Эйлера}
+\subsubsection{5.3. Формула Эйлера}
 
 Для связного планарного графа справедлива \emph{формула Эйлера}:
 \[
@@ -92,14 +56,14 @@
 \]
 Действительно, при планарном вложении мы получаем три внутренних треугольника и одну внешнюю область.
 
-\subsection*{5.4. Критерии планарности}
+\subsubsection{5.4. Критерии планарности}
 
 \begin{itemize}[leftmargin=*]
   \item \textbf{Теорема Куратовского:} Граф планарен тогда и только тогда, когда он не содержит подграфа, гомоморфного $K_5$ или $K_{3,3}$.
   \item \textbf{Теорема Вагнера:} Упрощённый критерий: нет миноров $K_5$ и $K_{3,3}$.
 \end{itemize}
 
-\subsection*{5.5. Свойства и ограничения}
+\subsubsection{5.5. Свойства и ограничения}
 
 \begin{enumerate}[label=\arabic*)]
   \item Для простого планарного графа с $V\ge3$ всегда выполняется
@@ -113,7 +77,7 @@
   \item Минимальный непланарный граф имеет $V=5$, $E=10$ (граф $K_5$) или $V=6$, $E=9$ (граф $K_{3,3}$).
 \end{enumerate}
 
-\subsection*{5.6. Применения}
+\subsubsection{5.6. Применения}
 
 \begin{itemize}[leftmargin=*]
   \item \emph{Географические карты}: раскраска областей так, чтобы соседние области различались цветом (теорема о четырёх красках).
@@ -121,7 +85,7 @@
   \item \emph{Графический дизайн}: автоматическая укладка элементов схем и диаграмм.
 \end{itemize}
 
-\subsection*{Источники}
+\subsubsection{Источники}
 
 \begin{itemize}
   \item Д.Б.\,West, \emph{Introduction to Graph Theory}, Prentice Hall.
@@ -129,5 +93,3 @@
   \item \href{https://ru.wikipedia.org/wiki/Планарный_граф}{Википедия: Планарный граф}
   \item \href{https://ru.wikipedia.org/wiki/Теорема_Куратовского}{Википедия: Теорема Куратовского}
 \end{itemize}
-
-\end{document}

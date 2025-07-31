@@ -1,42 +1,6 @@
-\documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T2A]{fontenc}
-\usepackage[russian]{babel}
+\subsection{9. Двоичные алгебры}
 
-% Математические пакеты
-\usepackage{amssymb, amsmath}
-
-% Пакеты для оформления
-\usepackage[
-    a5paper,
-    left=15mm,
-    right=15mm,
-    top=10mm,
-    bottom=15mm,
-    footskip=5mm
-]{geometry}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{tikz}
-
-\begin{document}
-
-\title{Двоичные алгебры}
-\author{}
-\date{}
-\makeatletter
-\renewcommand{\maketitle}{
-  \begin{center}
-    {\Large\mdseries\@title\par}
-    \vspace{0.5em}
-  \end{center}
-}
-\makeatother
-\maketitle
-
-\section*{9. Двоичные алгебры}
-
-\subsection*{9.1. Понятие двоичной (бинарной) операции}
+\subsubsection{9.1. Понятие двоичной (бинарной) операции}
 
 \begin{definition}
 Пусть $A$ — непустое множество. \emph{Двоичной операцией} на $A$ называется отображение
@@ -48,7 +12,7 @@
 
 \emph{Интуиция:} берём два элемента из $A$, «складываем» их по правилу $*$ и получаем снова элемент из $A$.
 
-\subsection*{9.2. Свойства двоичной операции}
+\subsubsection{9.2. Свойства двоичной операции}
 
 Пусть $*$ — двоичная операция на $A$. Говорят, что $*$ обладает свойствами:
 
@@ -75,7 +39,7 @@
     Тогда $y$ называют \emph{обратным} к $x$ и обозначают $x^{-1}$.
 \end{itemize}
 
-\subsection*{9.3. Классификация двоичных алгебр}
+\subsubsection{9.3. Классификация двоичных алгебр}
 
 \begin{enumerate}[label=\arabic*)]
   \item \textbf{Магма}: $(A,*)$ — любое множество с двоичной операцией (требуется лишь замкнутость).
@@ -85,7 +49,7 @@
   \item \textbf{Абелева (коммутативная) группа}: группа с коммутативным $*$.
 \end{enumerate}
 
-\subsection*{9.4. Примеры}
+\subsubsection{9.4. Примеры}
 
 \begin{enumerate}[label=\arabic*)]
   \item $(\mathbb{Z}, +)$ — абелева группа, где единица $0$, обратный к $x$ есть $-x$.
@@ -99,7 +63,7 @@
   \item $(M_n(\mathbb{R}), \cdot)$ — полугруппа матриц; моноид при наличии единичной матрицы.
 \end{enumerate}
 
-\subsection*{9.5. Таблица Кэли}
+\subsubsection{9.5. Таблица Кэли}
 
 Для конечных алгебр удобно задавать операцию таблицей.  
 \emph{Пример:} группа $(\{0,1\},\oplus)$:
@@ -112,12 +76,12 @@
 \end{array}
 \]
 
-\subsection*{9.6. Связь с булевыми алгебрами}
+\subsubsection{9.6. Связь с булевыми алгебрами}
 
 Булева алгебра — это \emph{расширенная} коммутативная группа с дополнительными операциями «и», «или» и «не» на множестве $\{0,1\}$.  
 В частности, структура $(\{0,1\},\wedge,\vee,\neg)$ удовлетворяет ряду аксиом идемпотентности и дистрибутивности.
 
-\subsection*{9.7. Зачем нужны двоичные алгебры?}
+\subsubsection{9.7. Зачем нужны двоичные алгебры?}
 
 \begin{itemize}[leftmargin=*]
   \item Моделирование и анализ абстрактных операций (сложение, умножение, логические связки).
@@ -125,12 +89,10 @@
   \item В информатике: операции над битами, булевы функции, конечные автоматы.
 \end{itemize}
 
-\subsection*{Источники}
+\subsubsection{Источники}
 
 \begin{itemize}
   \item С.\,Ланг, \emph{Алгебра}.
   \item Д.\,С. Джонсонбауг, \emph{Дискретная математика}, Pearson.
   \item \href{https://ru.wikipedia.org/wiki/Бинарная_операция}{Википедия: Бинарная операция}.
 \end{itemize}
-
-\end{document}

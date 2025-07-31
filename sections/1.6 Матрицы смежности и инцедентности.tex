@@ -1,42 +1,6 @@
-\documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T2A]{fontenc}
-\usepackage[russian]{babel}
+\subsection{6. Матрицы смежности и инцидентности}
 
-% Математические пакеты
-\usepackage{amssymb, amsmath}
-
-% Пакеты для оформления
-\usepackage[
-    a5paper,
-    left=15mm,
-    right=15mm,
-    top=10mm,
-    bottom=15mm,
-    footskip=5mm
-]{geometry}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{tikz}
-
-\begin{document}
-
-\title{Матрицы смежности и инцидентности}
-\author{}
-\date{}
-\makeatletter
-\renewcommand{\maketitle}{
-  \begin{center}
-    {\Large\mdseries\@title\par}
-    \vspace{0.5em}
-  \end{center}
-}
-\makeatother
-\maketitle
-
-\section*{6. Матрицы смежности и инцидентности}
-
-\subsection*{6.1. Граф и его представления}
+\subsubsection{6.1. Граф и его представления}
 
 Пусть задан простой неориентированный граф $G = (V, E)$, где:
 \begin{itemize}[leftmargin=*]
@@ -50,7 +14,7 @@
   \item \textbf{Матрица инцидентности} (incidence matrix).
 \end{enumerate}
 
-\subsection*{6.2. Матрица смежности}
+\subsubsection{6.2. Матрица смежности}
 
 Матрица смежности $A$ — это квадратная матрица $n \times n$, где:
 \[
@@ -78,7 +42,7 @@ A =
 \end{pmatrix}
 \]
 
-\subsection*{6.3. Матрица инцидентности}
+\subsubsection{6.3. Матрица инцидентности}
 
 Матрица инцидентности $B$ — это матрица $n \times m$, где:
 \[
@@ -112,7 +76,7 @@ B =
 \end{pmatrix}
 \]
 
-\subsection*{6.4. Сравнение представлений}
+\subsubsection{6.4. Сравнение представлений}
 
 \begin{itemize}[leftmargin=*]
   \item Матрица смежности подходит для быстрого ответа на вопрос: «Есть ли ребро между $v_i$ и $v_j$?»
@@ -120,7 +84,7 @@ B =
   \item Для разреженных графов (мало рёбер) матрица смежности неэффективна по памяти.
 \end{itemize}
 
-\subsection*{6.5. Визуальный пример}
+\subsubsection{6.5. Визуальный пример}
 
 \begin{center}
 \begin{tikzpicture}[scale=1.2, every node/.style={circle, draw}]
@@ -136,7 +100,7 @@ B =
 \small Рис. 1. Граф с вершинами $v_1, v_2, v_3$ и рёбрами $e_1, e_2$
 \end{center}
 
-\subsection*{6.6. Применения}
+\subsubsection{6.6. Применения}
 
 \begin{itemize}[leftmargin=*]
   \item Алгоритмы поиска в графе (например, обход в глубину, поиск кратчайших путей).
@@ -144,7 +108,7 @@ B =
   \item Работа с графами в программировании, машинном обучении и обработке изображений.
 \end{itemize}
 
-\subsection*{Источники}
+\subsubsection{Источники}
 
 \begin{itemize}
   \item Гросс, Йелл: \emph{Теория графов и её приложения}.
@@ -152,5 +116,3 @@ B =
   \item \href{https://ru.wikipedia.org/wiki/Матрица_смежности}{Википедия: Матрица смежности}
   \item \href{https://ru.wikipedia.org/wiki/Матрица_инцидентности}{Википедия: Матрица инцидентности}
 \end{itemize}
-
-\end{document}

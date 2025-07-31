@@ -1,42 +1,6 @@
-\documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T2A]{fontenc}
-\usepackage[russian]{babel}
+\subsection{7. Пути и контуры в графе}
 
-% Математические пакеты
-\usepackage{amssymb, amsmath}
-
-% Пакеты для оформления
-\usepackage[
-    a5paper,
-    left=15mm,
-    right=15mm,
-    top=10mm,
-    bottom=15mm,
-    footskip=5mm
-]{geometry}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{tikz}
-
-\begin{document}
-
-\title{Пути и контуры в графе}
-\author{}
-\date{}
-\makeatletter
-\renewcommand{\maketitle}{
-  \begin{center}
-    {\Large\mdseries\@title\par}
-    \vspace{0.5em}
-  \end{center}
-}
-\makeatother
-\maketitle
-
-\section*{7. Пути и контуры в графе}
-
-\subsection*{7.1. Основные определения}
+\subsubsection{7.1. Основные определения}
 
 Пусть задан неориентированный простой граф $G=(V,E)$.
 
@@ -52,7 +16,7 @@
   \item \textbf{Замкнутый путь} — начальная и конечная вершины совпадают ($v_0 = v_k$).
 \end{itemize}
 
-\subsection*{7.2. Простые пути и контуры}
+\subsubsection{7.2. Простые пути и контуры}
 
 \begin{enumerate}[label=\arabic*)]
   \item \textbf{Простой путь} — путь, в котором все вершины различны:
@@ -63,7 +27,7 @@
   \item \textbf{Контур} (cycle) или \textbf{простой замкнутый путь} — замкнутый простой путь длины $k\ge3$, в котором кроме совпадения $v_0=v_k$ все промежуточные вершины различны.
 \end{enumerate}
 
-\subsection*{7.3. Специальные виды путей}
+\subsubsection{7.3. Специальные виды путей}
 
 \begin{itemize}[leftmargin=*]
   \item \textbf{Тrail} — путь, в котором рёбра не повторяются, но вершины могут.
@@ -72,7 +36,7 @@
   \item \textbf{Гамильтонов путь} — простой путь, проходящий через каждую вершину ровно один раз. Если он замкнут (возвращается в начальную вершину), то это \emph{цикл Гамильтона}.
 \end{itemize}
 
-\subsection*{7.4. Примеры и иллюстрации}
+\subsubsection{7.4. Примеры и иллюстрации}
 
 \paragraph{Пример 1.} Простой путь длины 4 на графе:
 
@@ -103,7 +67,7 @@
 \end{tikzpicture}
 \end{center}
 
-\subsection*{7.5. Свойства путей и контуров}
+\subsubsection{7.5. Свойства путей и контуров}
 
 \begin{itemize}[leftmargin=*]
   \item \emph{Комбинирование путей:} если существует путь из $u$ в $v$ и из $v$ в $w$, то их конкатенация даёт путь из $u$ в $w$.
@@ -112,7 +76,7 @@
   \item \emph{Кycle Space:} множество всех циклов (контуров) образует векторное пространство над $\mathbb{F}_2$ (для ориентированных графов).
 \end{itemize}
 
-\subsection*{7.6. Матрица смежности и подсчёт путей}
+\subsubsection{7.6. Матрица смежности и подсчёт путей}
 
 Если $A = (a_{ij})$ — матрица смежности графа $G$, то элемент матрицы $A^k$ в позиции $(i,j)$ равен числу различных путей длины $k$ из вершины $v_i$ в вершину $v_j$.
 
@@ -126,11 +90,11 @@
   \item Определить достижимость: существует путь любой длины $k\le n-1$.
 \end{itemize}
 
-\subsection*{7.7. Заключение}
+\subsubsection{7.7. Заключение}
 
 Пути и контуры — фундаментальные понятия теории графов, лежащие в основе алгоритмов поиска (BFS, DFS), анализа связности, планарности и многих применений в сетевых и прикладных задачах.
 
-\subsection*{Источники}
+\subsubsection{Источники}
 
 \begin{itemize}
   \item Д.Б.\,West, \emph{Introduction to Graph Theory}, Prentice Hall.
@@ -139,4 +103,3 @@
   \item \href{https://ru.wikipedia.org/wiki/Цикл_в_графе}{Википедия: Цикл (граф)}
 \end{itemize}
 
-\end{document}
