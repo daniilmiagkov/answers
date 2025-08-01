@@ -1,0 +1,98 @@
+\subsection{Диаграммы Венна}
+
+\subsubsection{Определение и назначение}
+
+\textbf{Диаграммы Венна} (иногда называемые диаграммами Эйлера–Венна) служат для наглядного изображения отношений между множествами: объединений, пересечений, разностей и дополнений.
+
+\subsubsection{Основные операции}
+
+\begin{enumerate}[label=\arabic*)]
+  \item \textbf{Объединение}: \(A \cup B\) — все элементы, принадлежащие хотя бы одному из множеств.
+  \item \textbf{Пересечение}: \(A \cap B\) — элементы, общие для обоих множеств.
+  \item \textbf{Разность}: \(A \setminus B\) — элементы из \(A\), не входящие в \(B\).
+  \item \textbf{Дополнение}: \(\overline{A}\) — все элементы универсального множества \(U\), не входящие в \(A\).
+\end{enumerate}
+
+\subsubsection{Примеры диаграмм}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+  % Объединение A ∪ B
+  \fill[blue!20] (0,0) circle (1.2);
+  \fill[blue!20] (2,0) circle (1.2);
+  \draw (0,0) circle (1.2) node[left]{$A$};
+  \draw (2,0) circle (1.2) node[right]{$B$};
+  \node at (1,0) {$(A\cup B)$};
+  \node at (1,-1.8) {Объединение};
+\end{tikzpicture}
+
+\vspace{1em}
+
+\begin{tikzpicture}[shift={(0,-4)},scale=0.8]
+  % Пересечение A ∩ B
+  \fill[red!20] (0,0) circle (1.2);
+  \fill[white] (0:0.6) circle (0); % placeholder
+  \begin{scope}
+    \clip (0,0) circle (1.2);
+    \fill[red!20] (2,0) circle (1.2);
+  \end{scope}
+  \draw (0,0) circle (1.2) node[left]{$A$};
+  \draw (2,0) circle (1.2) node[right]{$B$};
+  \node at (1,0) {$(A\cap B)$};
+  \node at (1,-1.8) {Пересечение};
+\end{tikzpicture}
+
+\vspace{1em}
+
+\begin{tikzpicture}[shift={(0,-8)},scale=0.8]
+  % Разность A \ B
+  \fill[green!20] (0,0) circle (1.2);
+  \begin{scope}
+    \clip (2,0) circle (1.2);
+    \fill[white] (0,0) circle (1.2);
+  \end{scope}
+  \draw (0,0) circle (1.2) node[left]{$A$};
+  \draw (2,0) circle (1.2) node[right]{$B$};
+  \node at (1,0) {$(A\setminus B)$};
+  \node at (1,-1.8) {Разность};
+\end{tikzpicture}
+
+\vspace{1em}
+
+\begin{tikzpicture}[shift={(0,-12)},scale=0.8]
+  % Дополнение ¬A
+  \fill[gray!20] (-2,0) rectangle (4,2);
+  \begin{scope}
+    \clip (-2,0) rectangle (4,2);
+    \fill[white] (1,1) circle (1.2);
+  \end{scope}
+  \draw (1,1) circle (1.2) node{$A$};
+  \node at (1,-0.2) {$\overline{A}$};
+  \node at (1,-1.8) {Дополнение};
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{Свойства}
+
+\begin{enumerate}[label=\arabic*)]
+  \item Ассоциативность:
+    \[
+      (A\cup B)\cup C = A\cup(B\cup C), 
+      \quad (A\cap B)\cap C = A\cap(B\cap C).
+    \]
+  \item Коммутативность:
+    \[
+      A\cup B = B\cup A, 
+      \quad A\cap B = B\cap A.
+    \]
+  \item Дистрибутивность:
+    \[
+      A\cap (B\cup C) = (A\cap B)\cup (A\cap C),
+      \quad A\cup (B\cap C) = (A\cup B)\cap (A\cup C).
+    \]
+  \item Законы де Моргана:
+    \[
+      \overline{A\cup B} = \overline{A}\cap\overline{B},
+      \quad \overline{A\cap B} = \overline{A}\cup\overline{B}.
+    \]
+\end{enumerate}

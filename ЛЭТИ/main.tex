@@ -1,0 +1,56 @@
+\documentclass[a5paper]{article}
+
+\usepackage{fontspec}
+\usepackage[russian]{babel}
+\usepackage{amssymb, amsmath}
+\usepackage[
+    a5paper,
+    left=15mm,
+    right=15mm,
+    top=10mm,
+    bottom=15mm,
+    footskip=5mm
+]{geometry}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{amsthm}
+
+% \usepackage{tocloft}  % Необязательно, но можно кастомизировать оглавление
+
+% % Отключаем нумерацию всех секций
+% \setcounter{secnumdepth}{0}
+
+% % (Опционально) убираем место под номер в оглавлении
+% \renewcommand{\cftsecpresnum}{}
+% \renewcommand{\cftsecaftersnum}{}
+% \renewcommand{\cftsecnumwidth}{0pt}
+
+\usepackage[
+    unicode=true,
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+]{hyperref}
+
+\setmainfont{Times New Roman}
+
+\begin{document}
+
+\tableofcontents
+
+% Input all section files
+\input{sections/1. Дискретная математика.tex}
+\input{sections/1.1 Множества.tex}
+\input{sections/1.2 Диаграммы Венна.tex}
+\input{sections/1.3 Отношения и их свойства.tex}
+\input{sections/1.4 Отношение эквивалентности и классификация множеств.tex}
+\input{sections/1.5 Планарные графы.tex}
+\input{sections/1.6 Матрицы смежности и инцедентности.tex}
+\input{sections/1.7 Пути и контуры в графе.tex}
+\input{sections/1.8 Симметрия графа и его дополнения.tex}
+\input{sections/1.9 Двоичные алгебры.tex}
+% End of sections
+
+\end{document}
+

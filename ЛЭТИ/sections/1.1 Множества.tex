@@ -1,41 +1,4 @@
-\documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T2A]{fontenc}
-\usepackage[russian]{babel}
-
-% Математические пакеты
-\usepackage{amssymb, amsmath}
-
-% Пакеты для оформления
-\usepackage[
-    a5paper,
-    left=15mm,
-    right=15mm,
-    top=10mm,       % Изменено с 0mm для нормального отступа
-    bottom=15mm,
-    footskip=5mm
-]{geometry}
-\usepackage{enumitem}
-\usepackage{hyperref} % Всегда подключать последним!
-
-\begin{document}
-
-% Перенесено в преамбулу (рекомендуется)
-\title{Множества и способы их задания}
-\author{}
-\date{}
-\makeatletter
-\renewcommand{\maketitle}{
-  \begin{center}
-    {\Large\mdseries % \mdseries - среднее (нежирное) начертание
-     \@title \par}
-    \vspace{0em}
-  \end{center}
-}
-\makeatother
-\maketitle
-
-\section*{Что такое множество?}
+\subsection{Что такое множество?}
 
 \textbf{Множество} — это совокупность объектов, которые рассматриваются как единое целое. Эти объекты называются \textit{элементами множества}.
 
@@ -46,7 +9,7 @@ A = \{1, 2, 3\}, \quad B = \{\text{красный}, \text{зелёный}, \text
 
 Обозначение: если $x$ принадлежит множеству $A$, пишем $x \in A$. Если не принадлежит — $x \notin A$.
 
-\section*{Способы задания множеств}
+\subsubsection{Способы задания множеств}
 
 Существует два основных способа задания множеств:
 
@@ -64,7 +27,7 @@ A = \{1, 2, 3\}, \quad B = \{\text{красный}, \text{зелёный}, \text
   Здесь $\mathbb{N}$ — множество натуральных чисел. Значит, $B$ — это все чётные натуральные числа, не превосходящие 10.
 \end{enumerate}
 
-\section*{Подмножества и другие понятия}
+\subsubsection{Подмножества и другие понятия}
 
 Если все элементы множества $A$ входят в множество $B$, то $A$ называется \textbf{подмножеством} $B$:
 \[
@@ -81,7 +44,7 @@ A \subseteq B
 \varnothing
 \]
 
-\section*{Мощность множества}
+\subsubsection{Мощность множества}
 
 \textbf{Мощность множества} (или \textit{кардинальное число}) — это количество элементов в нём. Обозначается $|A|$.
 
@@ -90,7 +53,7 @@ A \subseteq B
 A = \{a, b, c\} \Rightarrow |A| = 3
 \]
 
-\section*{Замечания}
+\subsubsection{Замечания}
 
 \begin{itemize}[leftmargin=*]
   \item В математике \textbf{порядок элементов и повторы не имеют значения}:
@@ -100,12 +63,10 @@ A = \{a, b, c\} \Rightarrow |A| = 3
   \item Главное — какие элементы входят в множество, а не как они записаны.
 \end{itemize}
 
-\section*{Источники}
+\subsubsection{Источники}
 
 \begin{itemize}
   \item Г.С. Михалев, \textit{Дискретная математика. Базовый курс для вузов}.
   \item Р. Джонсонбауг, \textit{Дискретная математика}, Pearson Education.
   \item \href{https://ru.wikipedia.org/wiki/Множество}{Википедия: Множество}
 \end{itemize}
-
-\end{document}

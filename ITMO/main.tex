@@ -1,0 +1,48 @@
+\documentclass[a5paper]{article}
+
+\usepackage{fontspec}
+\usepackage[russian]{babel}
+\usepackage{amssymb, amsmath}
+\usepackage[
+    a5paper,
+    left=15mm,
+    right=15mm,
+    top=10mm,
+    bottom=15mm,
+    footskip=5mm
+]{geometry}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{amsthm}
+
+% \usepackage{tocloft}  % Необязательно, но можно кастомизировать оглавление
+
+% % Отключаем нумерацию всех секций
+% \setcounter{secnumdepth}{0}
+
+% % (Опционально) убираем место под номер в оглавлении
+% \renewcommand{\cftsecpresnum}{}
+% \renewcommand{\cftsecaftersnum}{}
+% \renewcommand{\cftsecnumwidth}{0pt}
+
+\usepackage[
+    unicode=true,
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+]{hyperref}
+
+\setmainfont{Times New Roman}
+
+\begin{document}
+
+\tableofcontents
+
+% Input all section files
+\input{sections/Векторы.tex}
+\input{sections/Матрицы.tex}
+% End of sections
+
+\end{document}
+

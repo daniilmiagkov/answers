@@ -1,0 +1,105 @@
+\subsection{Пути и контуры в графе}
+
+\subsubsection{Основные определения}
+
+Пусть задан неориентированный простой граф $G=(V,E)$.
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Путь} (walk) в графе $G$ — это последовательность вершин
+  \[
+    P = (v_0, e_1, v_1, e_2, \dots, e_k, v_k),
+  \]
+  где каждое ребро $e_i = \{v_{i-1},v_i\}\in E$. Говорят, что путь ведёт из $v_0$ в $v_k$.
+  \item \textbf{Длина пути} — число ребер на пути, равное $k$.
+  \item \textbf{Начальная вершина} — $v_0$, \textbf{конечная вершина} — $v_k$.
+  \item \textbf{Открытый путь} — начальная и конечная вершины различны ($v_0 \neq v_k$).
+  \item \textbf{Замкнутый путь} — начальная и конечная вершины совпадают ($v_0 = v_k$).
+\end{itemize}
+
+\subsubsection{Простые пути и контуры}
+
+\begin{enumerate}[label=\arabic*)]
+  \item \textbf{Простой путь} — путь, в котором все вершины различны:
+  \[
+    v_i \neq v_j \quad\text{для }0\le i<j\le k.
+  \]
+  Простота гарантирует отсутствие «заходов в тупик» и повторов.
+  \item \textbf{Контур} (cycle) или \textbf{простой замкнутый путь} — замкнутый простой путь длины $k\ge3$, в котором кроме совпадения $v_0=v_k$ все промежуточные вершины различны.
+\end{enumerate}
+
+\subsubsection{Специальные виды путей}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Тrail} — путь, в котором рёбра не повторяются, но вершины могут.
+  \item \textbf{Цепь} (trail) и \textbf{цепь без повторов} (simple trail) в ориентированных графах аналогично.
+  \item \textbf{Эйлеров путь} — путь, проходящий по каждому ребру ровно один раз. Если он замкнут, то это \emph{цикл Эйлера}.
+  \item \textbf{Гамильтонов путь} — простой путь, проходящий через каждую вершину ровно один раз. Если он замкнут (возвращается в начальную вершину), то это \emph{цикл Гамильтона}.
+\end{itemize}
+
+\subsubsection{Примеры и иллюстрации}
+
+\paragraph{Пример 1.} Простой путь длины 4 на графе:
+
+\begin{center}
+\begin{tikzpicture}[scale=1, every node/.style={circle,draw,inner sep=1.2pt}]
+  \node (A) at (0,0) {$A$};
+  \node (B) at (1.5,0) {$B$};
+  \node (C) at (3,0) {$C$};
+  \node (D) at (4.5,0) {$D$};
+  \node (E) at (6,0) {$E$};
+  \foreach \u/\v in {A/B,B/C,C/D,D/E}
+    \draw (\u) -- (\v);
+  \node at (3,-0.7) {Путь $P=(A,B,C,D,E)$, длина $4$};
+\end{tikzpicture}
+\end{center}
+
+\paragraph{Пример 2.} Контур (цикл) длины 4:
+
+\begin{center}
+\begin{tikzpicture}[scale=1, every node/.style={circle,draw,inner sep=1.2pt}]
+  \node (1) at (0,0) {$1$};
+  \node (2) at (2,0) {$2$};
+  \node (3) at (2,2) {$3$};
+  \node (4) at (0,2) {$4$};
+  \foreach \u/\v in {1/2,2/3,3/4,4/1}
+    \draw (\u) -- (\v);
+  \node at (1,-0.5) {Контур $1\to2\to3\to4\to1$};
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{Свойства путей и контуров}
+
+\begin{itemize}[leftmargin=*]
+  \item \emph{Комбинирование путей:} если существует путь из $u$ в $v$ и из $v$ в $w$, то их конкатенация даёт путь из $u$ в $w$.
+  \item \emph{Связность:} граф $G$ называется связным, если для любых $u,v\in V$ существует путь из $u$ в $v$.
+  \item \emph{Минимальный путь:} путь минимальной длины называют \textbf{коротким путём} или \emph{найдём его с помощью алгоритма Дейкстры}.
+  \item \emph{Кycle Space:} множество всех циклов (контуров) образует векторное пространство над $\mathbb{F}_2$ (для ориентированных графов).
+\end{itemize}
+
+\subsubsection{Матрица смежности и подсчёт путей}
+
+Если $A = (a_{ij})$ — матрица смежности графа $G$, то элемент матрицы $A^k$ в позиции $(i,j)$ равен числу различных путей длины $k$ из вершины $v_i$ в вершину $v_j$.
+
+\[
+  (A^k)_{ij} = \#\{\text{walks of length }k \text{ from }v_i\text{ to }v_j\}.
+\]
+
+Это позволяет:
+\begin{itemize}[leftmargin=*]
+  \item Вычислить количество путей фиксированной длины.
+  \item Определить достижимость: существует путь любой длины $k\le n-1$.
+\end{itemize}
+
+\subsubsection{Заключение}
+
+Пути и контуры — фундаментальные понятия теории графов, лежащие в основе алгоритмов поиска (BFS, DFS), анализа связности, планарности и многих применений в сетевых и прикладных задачах.
+
+\subsubsection{Источники}
+
+\begin{itemize}
+  \item Д.Б.\,West, \emph{Introduction to Graph Theory}, Prentice Hall.
+  \item Р.\,Diestel, \emph{Graph Theory}.
+  \item \href{https://ru.wikipedia.org/wiki/Путь_в_графе}{Википедия: Путь в графе}
+  \item \href{https://ru.wikipedia.org/wiki/Цикл_в_графе}{Википедия: Цикл (граф)}
+\end{itemize}
+
