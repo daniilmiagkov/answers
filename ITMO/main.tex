@@ -13,18 +13,13 @@
 ]{geometry}
 \usepackage{enumitem}
 \usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning} % <-- Добавлено
 \usepackage{amsthm}
+\usepackage{graphicx} % <-- Добавлено
+\usepackage{caption}  % <-- Добавлено
+\usepackage{subcaption} % <-- Добавлено
 
-% \usepackage{tocloft}  % Необязательно, но можно кастомизировать оглавление
-
-% % Отключаем нумерацию всех секций
-% \setcounter{secnumdepth}{0}
-
-% % (Опционально) убираем место под номер в оглавлении
-% \renewcommand{\cftsecpresnum}{}
-% \renewcommand{\cftsecaftersnum}{}
-% \renewcommand{\cftsecnumwidth}{0pt}
-
+% Гиперссылки должны подключаться последними
 \usepackage[
     unicode=true,
     colorlinks=true,
