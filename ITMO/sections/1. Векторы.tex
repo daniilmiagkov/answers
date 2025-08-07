@@ -1,121 +1,86 @@
-\section{Векторы}
+\section{Векторы. Линейная зависимость системы векторов. Базис линейного пространства. Скалярное произведение векторов.}
 
-\textbf{Вектор} — это математический объект, описывающий как направление, так и величину. Векторы часто изображаются как направленные отрезки (стрелки), начинающиеся в начале координат.
+\textbf{Вектор} — это направленный отрезок, который характеризует величину и направление. Геометрически его можно представить как стрелку от начала координат до некоторой точки.
 
-В алгебраической записи вектор в $n$-мерном пространстве $\mathbb{R}^n$ — это упорядоченный набор $n$ чисел:
+Алгебраически вектор в $n$-мерном пространстве $\mathbb{R}^n$ — это упорядоченный набор чисел:
 \[
 \vec{v} = (v_1, v_2, \dots, v_n)
 \]
 
-\subsection*{Примеры векторов}
-\begin{itemize}
-  \item В $\mathbb{R}^2$: $\vec{a} = (3, -1)$
-  \item В $\mathbb{R}^3$: $\vec{b} = (0, 2, 1)$
-  \item В $\mathbb{R}^4$: $\vec{c} = (1, 0, 0, -1)$
-\end{itemize}
+\textbf{Примеры:}
+\[
+\vec{a} = (3, -1), \quad \vec{b} = (1, 2, 4)
+\]
 
 \vspace{1em}
-\textbf{Геометрическая интерпретация:} вектор — это перемещение из одной точки в другую. Например, вектор $(2, 1)$ соответствует сдвигу на 2 единицы вправо и 1 вверх.
-
-\vspace{1em}
+\textbf{Геометрическая интерпретация:}
 \begin{center}
 \begin{tikzpicture}[scale=1.2,>=stealth]
-\draw[->,gray!30] (-1,0) -- (4,0) node[right] {$x$};
-\draw[->,gray!30] (0,-1) -- (0,3) node[above] {$y$};
-\draw[->,thick,blue] (0,0) -- (2,1) node[above right] {$\vec{v}$};
+\draw[->,gray!40] (-1,0) -- (4,0) node[right] {$x$};
+\draw[->,gray!40] (0,-1) -- (0,3) node[above] {$y$};
+\draw[->,blue,thick] (0,0) -- (2.5,1.5) node[above right] {$\vec{v}$};
 \end{tikzpicture}
 \end{center}
 
-\subsection*{Операции с векторами}
-
-\begin{enumerate}
-  \item \textbf{Сложение:}
-  \[
-  (x_1, y_1) + (x_2, y_2) = (x_1 + x_2, y_1 + y_2)
-  \]
-  \item \textbf{Умножение на число (скаляр):}
-  \[
-  \lambda \cdot (x, y) = (\lambda x, \lambda y)
-  \]
-  \item \textbf{Нулевой вектор:}
-  \[
-  \vec{0} = (0, 0, \dots, 0)
-  \]
-\end{enumerate}
-
-\textbf{Графически сложение векторов} выглядит как «перенос конца первого вектора к началу второго» — получаем диагональ параллелограмма:
-
 \vspace{1em}
+\textbf{Основные операции:}
+\begin{itemize}
+  \item \textbf{Сложение:} $(x_1, y_1) + (x_2, y_2) = (x_1 + x_2, y_1 + y_2)$
+  \item \textbf{Умножение на скаляр:} $\lambda \cdot (x, y) = (\lambda x, \lambda y)$
+  \item \textbf{Нулевой вектор:} $\vec{0} = (0, 0, \dots, 0)$
+\end{itemize}
+
 \begin{center}
-\begin{tikzpicture}[scale=0.9,>=stealth]
-\draw[->,gray!40] (-1,0) -- (5,0) node[right] {$x$};
-\draw[->,gray!40] (0,-1) -- (0,4) node[above] {$y$};
+\begin{tikzpicture}[scale=1.0,>=stealth]
+\draw[->,gray!40] (-1,0) -- (5,0);
+\draw[->,gray!40] (0,-1) -- (0,4.5);
 
-\draw[->,blue,thick] (0,0) -- (2,1.5) node[above right] {$\vec{a}$};
-\draw[->,red,thick] (0,0) -- (1,2) node[above left] {$\vec{b}$};
-\draw[->,green!70!black,thick] (0,0) -- (3,3.5) node[right] {$\vec{a} + \vec{b}$};
+\draw[->,blue,thick] (0,0) -- (3,2) node[above right] {$\vec{a}$};
+\draw[->,red,thick] (0,0) -- (1,2.5) node[above left] {$\vec{b}$};
+\draw[->,green!60!black,thick] (0,0) -- (4,4.5) node[right] {$\vec{a} + \vec{b}$};
 
-\draw[dashed] (2,1.5) -- (3,3.5);
-\draw[dashed] (1,2) -- (3,3.5);
+\draw[dashed] (3,2) -- (4,4.5);
+\draw[dashed] (1,2.5) -- (4,4.5);
 \end{tikzpicture}
 \end{center}
 
----
+\vspace{2em}
+\textbf{Линейная зависимость и независимость векторов:}
 
-\section{Линейная зависимость системы векторов}
-
-Пусть заданы векторы $\vec{v}_1, \vec{v}_2, \dots, \vec{v}_k$ в пространстве $V$. Мы говорим, что они \textbf{линейно зависимы}, если существует набор чисел $\lambda_1, \dots, \lambda_k$, не все равные нулю, такой что:
+Рассмотрим векторы $\vec{v}_1, \vec{v}_2, \dots, \vec{v}_k$. Если существует набор коэффициентов $\lambda_1, \dots, \lambda_k$ (не все нули), такой что:
 \[
-\lambda_1 \vec{v}_1 + \lambda_2 \vec{v}_2 + \dots + \lambda_k \vec{v}_k = \vec{0}
+\lambda_1 \vec{v}_1 + \dots + \lambda_k \vec{v}_k = \vec{0}
+\]
+то векторы — \textbf{линейно зависимы}.
+
+Если единственное решение — тривиальное ($\lambda_1 = \dots = \lambda_k = 0$), то векторы — \textbf{линейно независимы}.
+
+\textbf{Пример:}
+\[
+\vec{v}_1 = (1, 2), \quad \vec{v}_2 = (2, 4) \Rightarrow \vec{v}_2 = 2 \vec{v}_1 \Rightarrow \text{зависимы}
 \]
 
-Если же такое равенство возможно только при $\lambda_1 = \dots = \lambda_k = 0$, то векторы \textbf{линейно независимы}.
-
-\subsection*{Интуитивно:}
-Если один вектор можно выразить через другие — система зависима.
-
-\textbf{Пример 1.}
-\[
-\vec{v}_1 = (1, 2), \quad \vec{v}_2 = (2, 4)
-\]
-Очевидно, что $\vec{v}_2 = 2 \vec{v}_1$, значит, они линейно зависимы.
-
-\vspace{1em}
 \begin{center}
 \begin{tikzpicture}[scale=1.2,>=stealth]
 \draw[->,gray!40] (-0.5,0) -- (3,0);
 \draw[->,gray!40] (0,-0.5) -- (0,3);
-
 \draw[->,blue,thick] (0,0) -- (1,2) node[above left] {$\vec{v}_1$};
 \draw[->,red,thick] (0,0) -- (2,4) node[above right] {$\vec{v}_2$};
 \end{tikzpicture}
 \end{center}
 
-\textbf{Пример 2.}
-Векторы $\vec{u}_1 = (1, 0)$ и $\vec{u}_2 = (0, 1)$ линейно независимы, так как невозможно выразить один через другой. Они формируют базис в $\mathbb{R}^2$.
+\vspace{2em}
+\textbf{Базис линейного пространства:}
 
----
+Базис — это система линейно независимых векторов, которая порождает всё пространство.  
+Любой вектор пространства выражается через базис как линейная комбинация.
 
-\section{Базис линейного пространства}
-
-Базис — это система векторов, которая:
-\begin{enumerate}
-  \item линейно независима;
-  \item порождает всё пространство (любой вектор можно выразить через неё).
-\end{enumerate}
-
-Если базис состоит из $n$ векторов, говорят, что размерность пространства равна $n$.
-
-\textbf{Пример.} В $\mathbb{R}^2$ стандартный базис:
+В $\mathbb{R}^2$ стандартный базис:
 \[
 \vec{e}_1 = (1, 0), \quad \vec{e}_2 = (0, 1)
-\]
-Тогда любой вектор $\vec{v} = (x, y)$ записывается как:
-\[
-\vec{v} = x \vec{e}_1 + y \vec{e}_2
+\Rightarrow \vec{v} = x \vec{e}_1 + y \vec{e}_2
 \]
 
-\vspace{1em}
 \begin{center}
 \begin{tikzpicture}[scale=1.1,>=stealth]
 \draw[->,gray!40] (-0.5,0) -- (3.5,0) node[right] {$x$};
@@ -127,16 +92,14 @@
 \end{tikzpicture}
 \end{center}
 
-\subsection*{Важно:}
-Базис может быть не единственным. Например, вектора $\vec{e}_1 = (1, 1)$ и $\vec{e}_2 = (1, -1)$ тоже образуют базис в $\mathbb{R}^2$.
+Размерность пространства — это количество векторов в базисе. Например, в $\mathbb{R}^3$ базис содержит 3 вектора.
 
----
-
-\section{Скалярное произведение векторов}
+\vspace{2em}
+\textbf{Скалярное произведение векторов:}
 
 Скалярное произведение двух векторов $\vec{a} = (a_1, \dots, a_n)$ и $\vec{b} = (b_1, \dots, b_n)$:
 \[
-\langle \vec{a}, \vec{b} \rangle = a_1b_1 + a_2b_2 + \dots + a_n b_n
+\langle \vec{a}, \vec{b} \rangle = a_1 b_1 + a_2 b_2 + \dots + a_n b_n
 \]
 
 \textbf{Пример:}
@@ -146,19 +109,18 @@
 
 \textbf{Свойства:}
 \begin{itemize}
-  \item Коммутативность: $\langle \vec{a}, \vec{b} \rangle = \langle \vec{b}, \vec{a} \rangle$
-  \item Линейность по каждому аргументу
+  \item Симметрия: $\langle \vec{a}, \vec{b} \rangle = \langle \vec{b}, \vec{a} \rangle$
+  \item Линейность: $\langle \alpha \vec{a} + \beta \vec{c}, \vec{b} \rangle = \alpha \langle \vec{a}, \vec{b} \rangle + \beta \langle \vec{c}, \vec{b} \rangle$
   \item $\langle \vec{a}, \vec{a} \rangle = \|\vec{a}\|^2$
 \end{itemize}
 
-\textbf{Геометрическая формула:}
+\textbf{Геометрически:}
 \[
 \langle \vec{a}, \vec{b} \rangle = \|\vec{a}\|\|\vec{b}\|\cos\theta
 \]
+где $\theta$ — угол между векторами.  
+Если $\langle \vec{a}, \vec{b} \rangle = 0$ — векторы ортогональны (перпендикулярны).
 
-\textbf{Если } $\langle \vec{a}, \vec{b} \rangle = 0$ $\Rightarrow$ векторы перпендикулярны (ортогональны).
-
-\vspace{1em}
 \begin{center}
 \begin{tikzpicture}[scale=1.2,>=stealth]
 \coordinate (O) at (0,0);
@@ -173,23 +135,23 @@
 \end{tikzpicture}
 \end{center}
 
-\subsection*{Приложение: длина и угол}
-Длина вектора $\vec{a}$ (её называют \textbf{нормой}) выражается так:
+\vspace{2em}
+\textbf{Длина вектора (норма):}
 \[
 \|\vec{a}\| = \sqrt{\langle \vec{a}, \vec{a} \rangle}
 \]
 
-А угол между двумя векторами вычисляется по формуле:
+\textbf{Угол между векторами:}
 \[
 \cos\theta = \frac{\langle \vec{a}, \vec{b} \rangle}{\|\vec{a}\|\|\vec{b}\|}
 \]
 
 ---
 
-\subsection*{Выводы}
+\textbf{Итоги:}
 \begin{itemize}
-  \item Векторы — базовые элементы линейной алгебры, описывающие направление и величину.
-  \item Линейная зависимость позволяет понять, насколько векторы "разные" и важны.
-  \item Базис даёт возможность представить любое состояние системы как комбинацию базовых движений.
-  \item Скалярное произведение связывает векторы с геометрией: длиной и углом.
+  \item Векторы — фундаментальные объекты в линейной алгебре.
+  \item Линейная зависимость помогает понимать структуру пространства.
+  \item Базис — минимальный набор независимых векторов, порождающих всё пространство.
+  \item Скалярное произведение связывает векторы с геометрией — углами и длинами.
 \end{itemize}
