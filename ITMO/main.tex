@@ -1,34 +1,55 @@
-\documentclass[a5paper]{article}
+% ===== Документ класс =====
+\documentclass[12pt,a4paper]{article}
 
-\usepackage{fontspec}
-\usepackage[russian]{babel}
-\usepackage{amssymb, amsmath}
-\usepackage[
-    a5paper,
-    left=15mm,
-    right=15mm,
-    top=10mm,
-    bottom=15mm,
-    footskip=5mm
-]{geometry}
-\usepackage{enumitem}
+% ===== Шрифты и unicode (для LuaLaTeX) =====
+\usepackage{fontspec}                % управление системными/otf/ttf шрифтами
+\setmainfont{Times New Roman}        % основной текстовый шрифт (если установлен)
+% альтернатива, если нет Times New Roman: \setmainfont{TeX Gyre Termes}
+
+% ===== Математика в Unicode =====
+\usepackage{unicode-math}            % подключаем современную math-систему
+\setmathfont{XITS Math}              % математический шрифт с поддержкой Unicode (XITS Math)
+% альтернатива: \setmathfont{Latin Modern Math} или \setmathfont{TeX Gyre Termes Math}
+
+% ===== Язык =====
+\usepackage{polyglossia}             % для LuaLaTeX удобно polyglossia
+\setdefaultlanguage{russian}
+\setotherlanguages{english}
+
+% ===== Базовые математические и вспомогательные пакеты =====
+\usepackage{amsmath,amssymb,amsthm}  % стандартные AMS-пакеты
+\usepackage{bm}                      % жирная математика (\bm)
+\usepackage{mathtools}               % расширения amsmath
+
+% ===== Графика и рисунки =====
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% ===== TikZ и pgfplots для графиков =====
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta,calc,positioning} % <-- Добавлено
-\usepackage{amsthm}
-\usepackage{graphicx} % <-- Добавлено
-\usepackage{caption}  % <-- Добавлено
-\usepackage{subcaption} % <-- Добавлено
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}            % поставь версию, доступную в твоём TeX-дистрибутиве
 
-% Гиперссылки должны подключаться последними
-\usepackage[
-    unicode=true,
-    colorlinks=true,
-    linkcolor=blue,
-    citecolor=blue,
-    urlcolor=blue
-]{hyperref}
+% ===== Ссылки и гиперссылки =====
+\usepackage{hyperref}
+\hypersetup{
+  unicode=true,
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
 
-\setmainfont{Times New Roman}
+% ===== Мелочи типографики =====
+\usepackage{microtype}               % опционально, улучшает переносы и кернинг
+
+% ===== (Опционально) fallback: если unicode-math недоступен или XITS не установлена =====
+% \usepackage{newtxtext,newtxmath}   % Times-подобное оформление с math под pdfLaTeX/LuaLaTeX
+% комментарий: newtxtext/newtxmath хорошая замена, если нет системных шрифтов
+
+% ===== Конец преамбулы =====
+
 
 \begin{document}
 
@@ -42,6 +63,10 @@
 \input{sections/5. Производные.tex}
 \input{sections/6. Частные производные.tex}
 \input{sections/7. Численные методы.tex}
+\input{sections/8. Основные понятия теории вероятности.tex}
+\input{sections/9. Понятие случайной величины.tex}
+\input{sections/10. Теоритические законы распределения.tex}
+\input{sections/11. Выборочные характеристики разброса.tex}
 % End of sections
 
 \end{document}
